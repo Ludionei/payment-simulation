@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- Este é o arquivo POM do projeto pai -->
-	<groupId>com.destaxa.payment</groupId>
+	<groupId>com.payment-simulation</groupId>
 	<artifactId>payment-simulation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging> <!-- Define que este é um projeto do tipo POM (multimódulo) -->

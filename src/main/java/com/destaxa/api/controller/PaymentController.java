@@ -19,7 +19,10 @@ public class PaymentController {
 
     @PostMapping("/authorization")
     public PaymentResponse authorizePayment(@RequestBody PaymentRequest paymentRequest) {
+        //pula o socket
         return paymentService.processPayment(paymentRequest);
+        //fluxo completo
+        //return paymentService.processPaymentSocket(paymentRequest);
     }
 
 }

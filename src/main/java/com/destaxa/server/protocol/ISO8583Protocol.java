@@ -14,6 +14,7 @@ public class ISO8583Protocol {
      * Processa uma solicitação de pagamento conforme o protocolo ISO8583.
      */
     public PaymentResponse processISO8583(PaymentRequest request) {
+        
         PaymentResponse response = new PaymentResponse();
 
         if (request.getValue() > 1000) {
@@ -30,4 +31,5 @@ public class ISO8583Protocol {
         response.setTransactionHour("12:45:34");  // Hora simulada
         return response;
     }
+
 }

@@ -1,11 +1,16 @@
-module api {
-    requires com.payment-simulation.core;  // Dependência do módulo CORE
-    requires com.payment-simulation.server;  // Dependência do módulo SERVER
-    requires spring.boot;
-    requires spring.web;
-    requires springfox.swagger2;
-    requires springfox.swagger.ui;
+module com.payment-simulation.api {
 
-    exports com.payment-simulation.api.controller;
-    exports com.payment-simulation.api.infrastructure;
+        // Requer o Spring Boot Starter Web para a criação de endpoints REST
+        requires spring.boot;
+        requires spring.boot.autoconfigure;
+        requires spring.web;
+        requires spring.context;
+
+        // Requer o módulo 'core' para utilizar suas interfaces e serviços no controller
+        requires com.payment-simulation.core;
+
+        // Expondo pacotes necessários para que o servidor ou outros módulos possam acessar os controladores e a infraestrutura da API
+        exports com.payment-simulation.api.controller;
+        exports com.payment-simulation.api.infrastructure;
+
 }

@@ -2,6 +2,7 @@ package com.destaxa.core.usecase;
 
 import com.destaxa.core.domain.PaymentRequest;
 import com.destaxa.core.domain.PaymentResponse;
+import com.destaxa.core.exception.PaymentTimeoutException;
 import com.destaxa.core.port.PaymentProcessor;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -22,9 +23,9 @@ public class PaymentProcessorImpl implements PaymentProcessor {
 
         if (request.getValue() < 0) {
             response.setResponseCode("051"); // Negado
-        } else if (request.getValue() > 1000) {
-            // Timeout Simulado
-            return null;
+        } else if (request.getValue() > 1000) {// Timeout Simulado
+            response.setResponseCode("TIMEOUT");
+            throw new PaymentTimeoutException("Timeout for high-value transactions");
         } else {
             response.setResponseCode("000"); // Aprovado
             response.setAuthorizationCode(UUID.randomUUID().toString().substring(0, 6));

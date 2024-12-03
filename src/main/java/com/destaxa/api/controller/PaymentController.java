@@ -17,6 +17,11 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
+    @GetMapping("/test")
+    public String testEndpoint() {
+        return "Hello, World!";
+    }
+
     @PostMapping("/authorization")
     public PaymentResponse authorizePayment(@RequestBody PaymentRequest paymentRequest) {
         return paymentService.processPayment(paymentRequest);

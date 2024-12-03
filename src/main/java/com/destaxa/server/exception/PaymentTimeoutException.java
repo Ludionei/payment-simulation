@@ -1,4 +1,4 @@
-package com.destaxa.core.exception;
+package com.destaxa.server.exception;
 
 public class PaymentTimeoutException extends RuntimeException {
 

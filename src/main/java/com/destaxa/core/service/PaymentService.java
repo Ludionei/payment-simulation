@@ -2,7 +2,7 @@ package com.destaxa.core.service;
 
 import com.destaxa.core.domain.PaymentRequest;
 import com.destaxa.core.domain.PaymentResponse;
-import com.destaxa.core.port.PaymentProcessor;
+import com.destaxa.core.application.PaymentProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

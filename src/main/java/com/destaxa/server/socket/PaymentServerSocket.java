@@ -2,7 +2,7 @@ package com.destaxa.server.socket;
 
 import com.destaxa.core.domain.PaymentRequest;
 import com.destaxa.core.domain.PaymentResponse;
-import com.destaxa.server.protocol.ISO8583Protocol;
+import com.destaxa.core.usecase.PaymentAuthorizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +16,11 @@ import java.net.Socket;
 @Component
 public class PaymentServerSocket {
 
-    private final ISO8583Protocol iso8583Protocol;
+    private final PaymentAuthorizer protocol;
 
     @Autowired
-    public PaymentServerSocket(ISO8583Protocol iso8583Protocol) {
-        this.iso8583Protocol = iso8583Protocol;
+    public PaymentServerSocket(PaymentAuthorizer protocol) {
+        this.protocol = protocol;
     }
 
     /**
@@ -49,7 +49,7 @@ public class PaymentServerSocket {
         PaymentRequest request = parsePaymentRequest(requestLine);
 
         // Processamento da solicitação
-        PaymentResponse response = iso8583Protocol.processISO8583(request);
+        PaymentResponse response = protocol.processPayment(request);
 
         // Envio da resposta
         PrintWriter writer = new PrintWriter(outputStream, true);

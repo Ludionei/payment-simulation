@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@OpenAPIDefinition(info = @Info(title = "Payment Simulation API", version = "1.0", description = "API para simulação de pagamento"))
-
+//@OpenAPIDefinition
 @SpringBootApplication
 public class ServerApplication {
 

@@ -2,13 +2,14 @@ package com.destaxa.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-//@OpenAPIDefinition(info = @Info(title = "Payment Simulation API", version = "1.0", description = "API para simulação de pagamento"))
-//@OpenAPIDefinition
+@EnableSwagger2
 @SpringBootApplication
 public class ServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ServerApplication.class, args);
     }
+
 }
